@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 
-namespace classbibli
+namespace rallyeLecture
 {
     public class Connection
     {

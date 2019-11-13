@@ -1,0 +1,31 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace rallyeLecture
+{
+    class Niveau
+    {
+        private int id;
+        private string niveauScolaire;
+
+        public Niveau(int id, string niveauScolaire)
+        {
+            this.id = id;
+            this.niveauScolaire = niveauScolaire;
+        }
+        public string GetNiveau
+        {
+            get
+            {
+                return this.niveauScolaire;
+            }
+            set
+            {
+                this.niveauScolaire = value;
+            }
+        }
+    }
+}

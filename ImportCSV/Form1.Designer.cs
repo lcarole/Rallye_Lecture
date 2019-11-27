@@ -58,6 +58,7 @@
             this.cb_reper.Name = "cb_reper";
             this.cb_reper.Size = new System.Drawing.Size(254, 21);
             this.cb_reper.TabIndex = 1;
+            this.cb_reper.SelectedIndexChanged += new System.EventHandler(this.cb_reper_SelectedIndexChanged);
             // 
             // label2
             // 

@@ -12,7 +12,8 @@ namespace rallyeLecture
         private string prenom;
         private string login;
         private string passWord;
-        static Random caracAleatoire;
+        public static Random caracAleatoire = new Random();
+       
 
         public Eleve(string nom, string prenom, string login, PassWordType type)
         {
@@ -23,13 +24,12 @@ namespace rallyeLecture
         }
         private static string GetPasswordAleatoire() 
             {
-            Random caracAleatoire = new Random();
             string majAlpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
             string minAlpha = "abcdefghijklmnopqrstuvwxyz";
             char[] mdp = new char[9];
             string num = "0123456789";
             string caraSpe = "&':!*%$£=_";
-            
+            string mDePasse = "";
             for (int i = 0; i < 9; i++)
             {
                 for (int j = 0; j < majAlpha.Length; j++)
@@ -40,11 +40,11 @@ namespace rallyeLecture
                         mdp[caracAleatoire.Next(9)] = majAlpha[caracAleatoire.Next(25)];
                         mdp[caracAleatoire.Next(9)] = num[caracAleatoire.Next(10)];
                         mdp[caracAleatoire.Next(9)] = caraSpe[caracAleatoire.Next(10)];
+                        mDePasse = new string(mdp); 
                     }
                 }
                 
             }
-            string mDePasse = new string(mdp);
             return mDePasse;
             }
 
@@ -91,5 +91,8 @@ namespace rallyeLecture
                 this.passWord = value;
             }
         }
+
+        public string Nom { get => nom; set => nom = value; }
+        public string Prenom { get => prenom; set => prenom = value; }
     }
 }

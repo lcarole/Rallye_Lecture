@@ -36,9 +36,8 @@ namespace rallyeLecture
                 nom = te[0];
                 prenom = te[1];
                 string login = prenom + nom + "@sio.jjr.fr";
-                Eleve s = new Eleve(nom, prenom, login,type);
-                lesEleves.Add(s); 
-                Console.WriteLine(nom + " " + prenom + "Chargé !");
+                lesEleves.Add(new Eleve(nom, prenom, login,type));
+                Console.WriteLine(nom + " " + prenom + " Chargé !");
             }
             return lesEleves;
         }

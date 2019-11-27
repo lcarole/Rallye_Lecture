@@ -18,5 +18,28 @@ namespace rallyeLecture
             this.anneeScolaire = anneeScolaire;
             this.idNiveau = idNiveau;
         }
+    public int GetIDEnseignant
+    {
+        get
+        {
+            return idEnseignant;
+        }
     }
+
+    public string GetanneeScolaire
+    {
+        get
+        {
+            return anneeScolaire;
+        }
+    }
+
+    public int GetIDniveau
+    {
+        get
+        {
+            return idNiveau;
+        }
+    }
+}
 }

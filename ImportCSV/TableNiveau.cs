@@ -12,7 +12,7 @@ namespace rallyeLecture
         public List<Niveau> GetAll()
         {
             MySqlDataReader Rdr;
-            Connection cnx = new Connection("172.16.0.139", "root", "siojjr", "rallyeLecture");
+            Connection cnx = new Connection("172.16.0.138", "root", "siojjr", "rallyeLecture");
             List<Niveau> niveau = new List<Niveau>();
             Niveau n;
             string message = cnx.ouvrir();

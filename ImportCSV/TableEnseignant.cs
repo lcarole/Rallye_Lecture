@@ -14,7 +14,7 @@ namespace rallyeLecture
             Enseignant e;
             string[] param = new string[99];
             int i;
-            Connection Cnx = new Connection("172.16.0.139", "root", "siojjr", "rallyelecture");
+            Connection Cnx = new Connection("172.16.0.139", "root", "siojjr", "rallyeLecture");
             string rq = string.Format("select * from enseignant where login = '" + login + "'");
             Cnx.ouvrir();
             MySqlCommand Cmd = new MySqlCommand(rq, Cnx.Cnx);

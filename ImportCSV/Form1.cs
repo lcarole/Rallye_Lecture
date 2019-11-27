@@ -16,7 +16,7 @@ namespace rallyeLecture
         string année;
         LesEleves eleves = new LesEleves();
         PassWordType type;
-        StreamReader csv = new StreamReader("newEleves.csv");
+        StreamReader csv;
         public Form1()
         {
             InitializeComponent();
@@ -26,9 +26,15 @@ namespace rallyeLecture
                 string nom = Niveaux.GetAll()[i].GetNiveau;
                 cb_niveau.Items.Add(nom);
             }
+
+            string[] Dir = Directory.GetDirectories(@"C:\");
+
+            for (int i = 0; i < Dir.Length; i++)
+            {
+                cb_reper.Items.Add(Dir[i]);
+            }
         }
 
-  
 
     private void tb_annee_TextChanged(object sender, EventArgs e)
         {
@@ -47,12 +53,42 @@ namespace rallyeLecture
 
         private void btn_integ_Click(object sender, EventArgs e)
         {
+            csv = new StreamReader(clb_fichcsv.SelectedItem.ToString());
             LesEleves lE = new LesEleves();
-            lE.LoadCsv(type, csv);
+            TableEleve TE = new TableEleve();
+            Classe cE = new Classe(1,année,cb_niveau.SelectedIndex);
+            TableClasse Ce = new TableClasse();
+            Ce.Insert(cE);
+            for (int i = 0; i < lE.LoadCsv(type, csv).Count; i++)
+            {
+                TE.InsertEleve(lE.LoadCsv(type, csv)[i]);
+            }
             if (type == PassWordType.Aleatoire)
             {
                 lE.CreateCsvPasswordFile();
             }
+            MessageBox.Show("L'integration s'est bien déroulée" , "Intégration effectuée", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
+        private void cb_reper_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string[] F = Directory.GetFiles(@"C:\Rallye_Lecture\ImportCSV\bin\Debug");
+            string Dossier = Directory.GetCurrentDirectory();
+            int count = clb_fichcsv.Items.Count;
+            if (count > 0)
+            {
+
+                clb_fichcsv.Items.Clear();
+
+            }
+
+            for (int i = 0; i < F.Length; i++)
+            {
+                string message = System.IO.Path.GetFileName(F[i]);
+                clb_fichcsv.Items.Add(message);
+            }
+        }
+
+
     }
 }
